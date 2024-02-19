@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTFViewController" customModule="YouTubeFloatingPlayer" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTFViewController" customModule="DraggableFloatingVideoPlayerSwift" customModuleProvider="target">
             <connections>
                 <outlet property="backPlayerControlsView" destination="b1H-qK-LSs" id="Bay-TI-Dg9"/>
                 <outlet property="currentTime" destination="xST-Jd-HNU" id="CiS-tO-YE0"/>
@@ -36,6 +36,10 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mVV-1S-IXa">
                             <rect key="frame" x="0.0" y="180" width="320" height="388"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <outlet property="dataSource" destination="8Qe-H2-zqa" id="xCB-hB-7Ep"/>
+                                <outlet property="delegate" destination="8Qe-H2-zqa" id="wT1-6R-CKi"/>
+                            </connections>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,7 +55,7 @@
                         </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GX1-CJ-qY0" customClass="PlayerView" customModule="YouTubeFloatingPlayer" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GX1-CJ-qY0" customClass="PlayerView" customModule="DraggableFloatingVideoPlayerSwift" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                     <subviews>
                         <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1H-qK-LSs" userLabel="Back Footer View">
@@ -69,7 +73,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="tt5-IW-Rhy" secondAttribute="height" multiplier="1:1" id="ZOc-8Z-n1m"/>
                                     </constraints>
-                                    <state key="normal" image="play.png"/>
+                                    <state key="normal" image="play"/>
                                     <connections>
                                         <action selector="playTouchedWithSender:" destination="-1" eventType="touchUpInside" id="yUP-s7-csW"/>
                                     </connections>
@@ -99,17 +103,17 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="sXu-4o-OW4" secondAttribute="height" multiplier="1:1" id="URe-3f-jXh"/>
                                     </constraints>
-                                    <state key="normal" image="fullscreen.png"/>
+                                    <state key="normal" image="fullscreen"/>
                                     <connections>
                                         <action selector="fullScreenTouchedWithSender:" destination="-1" eventType="touchUpInside" id="UwO-7k-woR"/>
                                     </connections>
                                 </button>
-                                <progressView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-aK-mJg" customClass="CustomProgress" customModule="YouTubeFloatingPlayer" customModuleProvider="target">
+                                <progressView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-aK-mJg" customClass="CustomProgress" customModule="DraggableFloatingVideoPlayerSwift" customModuleProvider="target">
                                     <rect key="frame" x="76" y="20" width="168" height="4"/>
                                     <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </progressView>
-                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gMF-3a-S9d" customClass="CustomSlider" customModule="YouTubeFloatingPlayer" customModuleProvider="target">
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gMF-3a-S9d" customClass="CustomSlider" customModule="DraggableFloatingVideoPlayerSwift" customModuleProvider="target">
                                     <rect key="frame" x="74" y="6" width="172" height="31"/>
                                     <color key="tintColor" red="0.85416666666666663" green="0.0083327276709560909" blue="0.01632961403612402" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
@@ -138,7 +142,7 @@
                                 <constraint firstItem="0l8-MD-rzm" firstAttribute="leading" secondItem="gMF-3a-S9d" secondAttribute="trailing" constant="5" id="zrU-BL-UvF"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbJ-GH-Get" customClass="YTFPopupCloseButton" customModule="YouTubeFloatingPlayer" customModuleProvider="target">
+                        <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbJ-GH-Get" customClass="YTFPopupCloseButton" customModule="DraggableFloatingVideoPlayerSwift" customModuleProvider="target">
                             <rect key="frame" x="12" y="18" width="24" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="g66-CS-nhb"/>
@@ -213,7 +217,7 @@
         </view>
     </objects>
     <resources>
-        <image name="fullscreen.png" width="30" height="30"/>
-        <image name="play.png" width="30" height="30"/>
+        <image name="fullscreen" width="30" height="30"/>
+        <image name="play" width="30" height="30"/>
     </resources>
 </document>
