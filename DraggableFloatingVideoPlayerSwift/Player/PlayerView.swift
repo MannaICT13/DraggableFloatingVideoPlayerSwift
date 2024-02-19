@@ -128,7 +128,6 @@ private extension CMTime {
         }
     }
     
-    
     public var currentTime: Double {
         get {
             guard let player = player else {
@@ -137,13 +136,29 @@ private extension CMTime {
             return CMTimeGetSeconds(player.currentTime())
         }
         set {
-            guard let timescale = player?.currentItem?.duration.timescale else {
+            guard let player = player else {
                 return
             }
-            let newTime = CMTimeMakeWithSeconds(newValue, preferredTimescale: timescale)
-            player!.seek(to: newTime,toleranceBefore: CMTime.zero,toleranceAfter: CMTime.zero)
+            
+            guard let currentItem = player.currentItem else {
+            print("Current item is nil")
+                return
+            }
+            
+            let timescale = currentItem.duration.timescale
+            
+            if CMTimeGetSeconds(currentItem.duration) > newValue {
+                let newTime = CMTimeMakeWithSeconds(newValue, preferredTimescale: timescale)
+                
+                player.seek(to: newTime, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
+                   print("Success")
+                }
+            } else {
+                print("Invalid time value: \(newValue)")
+            }
         }
     }
+    
     public var interval = CMTimeMake(value: 1, timescale: 60) {
         didSet {
             if rate != 0 {
