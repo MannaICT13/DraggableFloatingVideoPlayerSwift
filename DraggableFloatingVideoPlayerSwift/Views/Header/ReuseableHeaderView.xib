@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ReuseableHeaderView" customModule="DraggableFloatingVideoPlayerSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="316" height="42"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="316" height="42"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-Gg-a9x">
+                        <rect key="frame" x="0.0" y="0.0" width="316" height="42"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently Added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dF3-Bb-oY5">
+                                <rect key="frame" x="16.000000000000007" y="11.333333333333334" width="114.66666666666669" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGw-Xp-Mll">
+                                <rect key="frame" x="260" y="10" width="40" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="HOg-1N-iGa"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrowshape.right.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="didTappedMore:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XyX-Is-jMw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZGw-Xp-Mll" secondAttribute="trailing" constant="16" id="UdI-1P-xhv"/>
+                            <constraint firstItem="dF3-Bb-oY5" firstAttribute="centerY" secondItem="DeN-Gg-a9x" secondAttribute="centerY" id="j6y-0N-hPw"/>
+                            <constraint firstItem="dF3-Bb-oY5" firstAttribute="leading" secondItem="DeN-Gg-a9x" secondAttribute="leading" constant="16" id="r0d-7d-SJQ"/>
+                            <constraint firstItem="ZGw-Xp-Mll" firstAttribute="centerY" secondItem="DeN-Gg-a9x" secondAttribute="centerY" id="rZP-B6-fVK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="DeN-Gg-a9x" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="Scr-oh-Zec"/>
+                <constraint firstAttribute="top" secondItem="DeN-Gg-a9x" secondAttribute="top" id="fWl-d0-EYK"/>
+                <constraint firstItem="DeN-Gg-a9x" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="vKq-ot-gkR"/>
+                <constraint firstAttribute="leading" secondItem="DeN-Gg-a9x" secondAttribute="leading" id="yVD-Mb-thH"/>
+            </constraints>
+            <size key="customSize" width="316" height="42"/>
+            <connections>
+                <outlet property="moreButtonOutlet" destination="ZGw-Xp-Mll" id="8t1-IZ-vrK"/>
+                <outlet property="titleLabel" destination="dF3-Bb-oY5" id="9yk-UC-pOL"/>
+            </connections>
+            <point key="canvasLocation" x="172.51908396946564" y="-3.5211267605633805"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="arrowshape.right.circle.fill" catalog="system" width="128" height="123"/>
+    </resources>
+</document>
