@@ -13,6 +13,17 @@
 		F5D527DD2B831785008A0335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D527DB2B831785008A0335 /* Main.storyboard */; };
 		F5D527DF2B831786008A0335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D527DE2B831786008A0335 /* Assets.xcassets */; };
 		F5D527E22B831786008A0335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D527E02B831786008A0335 /* LaunchScreen.storyboard */; };
+		F5D527EF2B831A7D008A0335 /* CustomProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527EE2B831A7D008A0335 /* CustomProgressSlider.swift */; };
+		F5D527F12B831A89008A0335 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527F02B831A89008A0335 /* PlayerView.swift */; };
+		F5D527F32B831AA6008A0335 /* YTFAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527F22B831AA6008A0335 /* YTFAnimation.swift */; };
+		F5D527F52B831AD4008A0335 /* YTFPlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527F42B831AD4008A0335 /* YTFPlayerControls.swift */; };
+		F5D527F72B831AEF008A0335 /* YTFPopupCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527F62B831AEF008A0335 /* YTFPopupCloseButton.swift */; };
+		F5D527F92B831B03008A0335 /* YTFPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527F82B831B03008A0335 /* YTFPlayer.swift */; };
+		F5D527FB2B831B1A008A0335 /* YTFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527FA2B831B1A008A0335 /* YTFViewController.swift */; };
+		F5D527FD2B831C13008A0335 /* YTFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D527FC2B831C13008A0335 /* YTFViewController.xib */; };
+		F5D528012B831D92008A0335 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527FF2B831D92008A0335 /* VideoCell.swift */; };
+		F5D528022B831D92008A0335 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D528002B831D92008A0335 /* VideoCell.xib */; };
+		F5D528052B831DD5008A0335 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D528042B831DD5008A0335 /* Video.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,17 @@
 		F5D527DE2B831786008A0335 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5D527E12B831786008A0335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5D527E32B831786008A0335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5D527EE2B831A7D008A0335 /* CustomProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressSlider.swift; sourceTree = "<group>"; };
+		F5D527F02B831A89008A0335 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		F5D527F22B831AA6008A0335 /* YTFAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTFAnimation.swift; sourceTree = "<group>"; };
+		F5D527F42B831AD4008A0335 /* YTFPlayerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTFPlayerControls.swift; sourceTree = "<group>"; };
+		F5D527F62B831AEF008A0335 /* YTFPopupCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTFPopupCloseButton.swift; sourceTree = "<group>"; };
+		F5D527F82B831B03008A0335 /* YTFPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTFPlayer.swift; sourceTree = "<group>"; };
+		F5D527FA2B831B1A008A0335 /* YTFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTFViewController.swift; sourceTree = "<group>"; };
+		F5D527FC2B831C13008A0335 /* YTFViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTFViewController.xib; sourceTree = "<group>"; };
+		F5D527FF2B831D92008A0335 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		F5D528002B831D92008A0335 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		F5D528042B831DD5008A0335 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				F5D527E92B831827008A0335 /* App */,
+				F5D528032B831DC2008A0335 /* Model */,
+				F5D527FE2B831D7C008A0335 /* TVCell */,
 				F5D527EC2B831878008A0335 /* Controller */,
+				F5D527ED2B831A42008A0335 /* Player */,
 				F5D527EA2B831831008A0335 /* Storyboard */,
 				F5D527EB2B83183E008A0335 /* Support Files */,
 			);
@@ -97,6 +122,38 @@
 				F5D527D92B831785008A0335 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F5D527ED2B831A42008A0335 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				F5D527EE2B831A7D008A0335 /* CustomProgressSlider.swift */,
+				F5D527F02B831A89008A0335 /* PlayerView.swift */,
+				F5D527F22B831AA6008A0335 /* YTFAnimation.swift */,
+				F5D527F42B831AD4008A0335 /* YTFPlayerControls.swift */,
+				F5D527F62B831AEF008A0335 /* YTFPopupCloseButton.swift */,
+				F5D527F82B831B03008A0335 /* YTFPlayer.swift */,
+				F5D527FA2B831B1A008A0335 /* YTFViewController.swift */,
+				F5D527FC2B831C13008A0335 /* YTFViewController.xib */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		F5D527FE2B831D7C008A0335 /* TVCell */ = {
+			isa = PBXGroup;
+			children = (
+				F5D527FF2B831D92008A0335 /* VideoCell.swift */,
+				F5D528002B831D92008A0335 /* VideoCell.xib */,
+			);
+			path = TVCell;
+			sourceTree = "<group>";
+		};
+		F5D528032B831DC2008A0335 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F5D528042B831DD5008A0335 /* Video.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +214,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D528022B831D92008A0335 /* VideoCell.xib in Resources */,
+				F5D527FD2B831C13008A0335 /* YTFViewController.xib in Resources */,
 				F5D527E22B831786008A0335 /* LaunchScreen.storyboard in Resources */,
 				F5D527DF2B831786008A0335 /* Assets.xcassets in Resources */,
 				F5D527DD2B831785008A0335 /* Main.storyboard in Resources */,
@@ -170,8 +229,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D527F92B831B03008A0335 /* YTFPlayer.swift in Sources */,
+				F5D528052B831DD5008A0335 /* Video.swift in Sources */,
+				F5D527F32B831AA6008A0335 /* YTFAnimation.swift in Sources */,
+				F5D527EF2B831A7D008A0335 /* CustomProgressSlider.swift in Sources */,
+				F5D527F52B831AD4008A0335 /* YTFPlayerControls.swift in Sources */,
 				F5D527DA2B831785008A0335 /* ViewController.swift in Sources */,
 				F5D527D62B831785008A0335 /* AppDelegate.swift in Sources */,
+				F5D527F72B831AEF008A0335 /* YTFPopupCloseButton.swift in Sources */,
+				F5D528012B831D92008A0335 /* VideoCell.swift in Sources */,
+				F5D527F12B831A89008A0335 /* PlayerView.swift in Sources */,
+				F5D527FB2B831B1A008A0335 /* YTFViewController.swift in Sources */,
 				F5D527D82B831785008A0335 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
