@@ -397,13 +397,10 @@ extension YTFViewController {
     
     func removeViews() {
         self.view.removeFromSuperview()
-        self.playerView.resetPlayer()
-        self.playerView.removeFromSuperview()
-        self.tableView.removeFromSuperview()
-        self.tableViewContainer.removeFromSuperview()
-        self.transparentView?.removeFromSuperview()
-        self.playerControlsView.removeFromSuperview()
-        self.backPlayerControlsView.removeFromSuperview()
+        self.playerView?.resetPlayer()
+        [playerView, tableView, tableViewContainer, transparentView, playerControlsView, backPlayerControlsView].forEach { view in
+            view?.removeFromSuperview()
+        }
+        dragViewController = nil
     }
-    
 }
