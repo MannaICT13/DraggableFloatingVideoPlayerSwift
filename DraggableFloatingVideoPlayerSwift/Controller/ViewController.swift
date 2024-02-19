@@ -56,14 +56,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
     }
     
-//    @IBAction func showPlayer(_ sender: UIButton) {
-//        var urls: [NSURL] = []
-//        for video in videos {
-//            urls.append(video.url)
-//        }
-//        YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: self, dataSource: self)
-//        YTFPlayer.showYTFView(viewController: self)
-//    }
+    //    @IBAction func showPlayer(_ sender: UIButton) {
+    //        var urls: [NSURL] = []
+    //        for video in videos {
+    //            urls.append(video.url)
+    //        }
+    //        YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: self, dataSource: self)
+    //        YTFPlayer.showYTFView(viewController: self)
+    //    }
     
     func movieLayoutSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1)))
@@ -102,54 +102,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             switch indexPath.section {
             case 0:
                 header.title = "Recenty Added"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                   // self?.navigateToDetailVC()
-                }
-                
             case 1:
                 header.title = "Recommanded For You"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                   // self?.navigateToDetailVC()
-                }
                 
             case 2:
                 header.title = "Bollywood Movies"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                   // self?.navigateToDetailVC()
-                }
-                
             case 3:
                 header.title = "Indian Bangla Movies"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                    //self?.navigateToDetailVC()
-                }
-                
             case 4:
                 header.title = "Korean Movies"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                   // self?.navigateToDetailVC()
-                }
-                return header
             case 5:
                 header.title = "Animation Movies"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                   // self?.navigateToDetailVC()
-                }
                 
             case 6:
                 header.title = "Hollywood Movies"
-                header.isMoreHidden = false
-                header.callback.didTappedMore = {[weak self] in
-                   // self?.navigateToDetailVC()
-                }
                 
             default: break
+                
+            }
+            header.callback.didTappedMore = {[weak self] in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                self?.navigationController?.pushViewController(storyboard.instantiateViewController(withIdentifier: "DetailViewController"), animated: true)
             }
             return header
             
@@ -175,9 +148,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath as IndexPath) as! VideoCell
-        cell.imageThumbnail.image = UIImage(named: "\( videos[indexPath.row].thumbnail)")
-        cell.labelArtist.text = videos[indexPath.row].artist
-        cell.labelTitle.text = videos[indexPath.row].name
+        let model = videos[indexPath.row]
+        cell.videoCellModel = .init(imageName: model.thumbnail, artist: model.artist, title: model.name)
         return cell
     }
 }

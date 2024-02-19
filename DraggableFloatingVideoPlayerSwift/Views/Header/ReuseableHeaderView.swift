@@ -28,12 +28,6 @@ class ReuseableHeaderView: UICollectionReusableView {
         }
     }
     
-    var isMoreHidden: Bool? {
-        didSet {
-            moreButtonOutlet.isHidden = isMoreHidden ?? false
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.font = .systemFont(ofSize: 15.0, weight: .medium)

@@ -100,13 +100,13 @@ class YTFViewController: UIViewController {
     }
     
     func initViews() {
-        self.view.backgroundColor = UIColor.clear
+        self.view.backgroundColor = .clear
         self.view.alpha = 0.0
         playerControlsView.alpha = 0.0
         backPlayerControlsView.alpha = 0.0
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(YTFViewController.panAction))
         playerView.addGestureRecognizer(gesture)
-        
+        tableView.backgroundColor = .systemBackground
         tableView.delegate = delegate
         tableView.dataSource = dataSource
         tableView.rowHeight = CGFloat(76)
