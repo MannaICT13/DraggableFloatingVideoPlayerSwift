@@ -7,32 +7,167 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    let videos = [Video.init(name: "Big Bunny", artist: "Google", 
-                             url: NSURL(string: "http://content.jwplatform.com/manifests/vM7nH0Kl.m3u8")!),
-                  Video.init(name: "Robo Toy", artist: "Google", 
-                             url: NSURL(string: "http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8")!),
-                  Video.init(name: "Big Bunny", artist: "Google", 
-                             url: NSURL(string: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8")!),
-                  Video.init(name: "Robo Toy", artist: "Google", 
-                             url: NSURL(string: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")!),
-                  Video.init(name: "Big Bunny", artist: "Google", 
-                             url: NSURL(string: "https://d1gnaphp93fop2.cloudfront.net/videos/multiresolution/rendition_new10.m3u8")!)]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    enum HomeCellType {
+        case recentyAdded, recommandedForYou, bollywood, indianBangla, korean, animation, hollywood
     }
     
+    var sections: [[HomeCellType]] {
+        var recentyAdded = [HomeCellType]()
+        var recommandedForYou = [HomeCellType]()
+        var bollywood = [HomeCellType]()
+        var indianBangla = [HomeCellType]()
+        var korean = [HomeCellType]()
+        var animation = [HomeCellType]()
+        var hollywood = [HomeCellType]()
+        
+        for _ in 0..<videos.count {
+            recentyAdded.append(contentsOf: [.recentyAdded])
+            recommandedForYou.append(contentsOf: [.recommandedForYou])
+            bollywood.append(contentsOf: [.bollywood])
+            indianBangla.append(contentsOf: [.indianBangla])
+            korean.append(contentsOf: [.korean])
+            animation.append(contentsOf: [.animation])
+            hollywood.append(contentsOf: [.hollywood])
+        }
+        return [recentyAdded, recommandedForYou, bollywood, indianBangla, korean, animation, hollywood]
+    }
     
-    @IBAction func showPlayer(_ sender: UIButton) {
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: movieLayoutSection())
+            collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil),
+                                    forCellWithReuseIdentifier: "MovieCollectionViewCell")
+            collectionView.register(UINib(nibName: ReuseableHeaderView.identifier, bundle: nil),
+                                    forSupplementaryViewOfKind: ReuseableHeaderView.kind,
+                                    withReuseIdentifier: ReuseableHeaderView.identifier)
+            
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupCollectionView()
+    }
+    
+    private func  setupCollectionView() {
+        
+    }
+    
+//    @IBAction func showPlayer(_ sender: UIButton) {
+//        var urls: [NSURL] = []
+//        for video in videos {
+//            urls.append(video.url)
+//        }
+//        YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: self, dataSource: self)
+//        YTFPlayer.showYTFView(viewController: self)
+//    }
+    
+    func movieLayoutSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1)))
+        item.contentInsets.leading = 8
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalWidth(1/2)), subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets.top = 8.0
+        section.contentInsets.bottom = 8.0
+        section.orthogonalScrollingBehavior = .continuous
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .absolute(18))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: ReuseableHeaderView.kind, alignment: .topLeading)
+        section.boundarySupplementaryItems = [header]
+        return section
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sections[section].count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as? MovieCollectionViewCell
+        cell?.thumbImage = videos[indexPath.item].thumbnail
+        return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case ReuseableHeaderView.kind:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ReuseableHeaderView.identifier, for: indexPath) as! ReuseableHeaderView
+            
+            switch indexPath.section {
+            case 0:
+                header.title = "Recenty Added"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                   // self?.navigateToDetailVC()
+                }
+                
+            case 1:
+                header.title = "Recommanded For You"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                   // self?.navigateToDetailVC()
+                }
+                
+            case 2:
+                header.title = "Bollywood Movies"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                   // self?.navigateToDetailVC()
+                }
+                
+            case 3:
+                header.title = "Indian Bangla Movies"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                    //self?.navigateToDetailVC()
+                }
+                
+            case 4:
+                header.title = "Korean Movies"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                   // self?.navigateToDetailVC()
+                }
+                return header
+            case 5:
+                header.title = "Animation Movies"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                   // self?.navigateToDetailVC()
+                }
+                
+            case 6:
+                header.title = "Hollywood Movies"
+                header.isMoreHidden = false
+                header.callback.didTappedMore = {[weak self] in
+                   // self?.navigateToDetailVC()
+                }
+                
+            default: break
+            }
+            return header
+            
+        default :
+            return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var urls: [NSURL] = []
         for video in videos {
-            urls.append(video.url)
+            urls.append(NSURL(string: video.videoURL)!)
         }
         YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: self, dataSource: self)
         YTFPlayer.showYTFView(viewController: self)
     }
 }
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videos.count
@@ -40,7 +175,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath as IndexPath) as! VideoCell
-        cell.imageThumbnail.image = UIImage(resource: .bigBunny)
+        cell.imageThumbnail.image = UIImage(named: "\( videos[indexPath.row].thumbnail)")
         cell.labelArtist.text = videos[indexPath.row].artist
         cell.labelTitle.text = videos[indexPath.row].name
         return cell
@@ -48,8 +183,8 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         YTFPlayer.playIndex(index: indexPath.row)
     }
 }
+
