@@ -33,17 +33,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return [recentyAdded, recommandedForYou, bollywood, indianBangla, korean, animation, hollywood]
     }
     
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: movieLayoutSection())
-            collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil),
-                                    forCellWithReuseIdentifier: "MovieCollectionViewCell")
-            collectionView.register(UINib(nibName: ReuseableHeaderView.identifier, bundle: nil),
-                                    forSupplementaryViewOfKind: ReuseableHeaderView.kind,
-                                    withReuseIdentifier: ReuseableHeaderView.identifier)
-            
         }
     }
     
@@ -53,17 +47,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     private func  setupCollectionView() {
-        
+        collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil),
+                                forCellWithReuseIdentifier: "MovieCollectionViewCell")
+        collectionView.register(UINib(nibName: ReuseableHeaderView.identifier, bundle: nil),
+                                forSupplementaryViewOfKind: ReuseableHeaderView.kind,
+                                withReuseIdentifier: ReuseableHeaderView.identifier)
     }
-    
-    //    @IBAction func showPlayer(_ sender: UIButton) {
-    //        var urls: [NSURL] = []
-    //        for video in videos {
-    //            urls.append(video.url)
-    //        }
-    //        YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: self, dataSource: self)
-    //        YTFPlayer.showYTFView(viewController: self)
-    //    }
     
     func movieLayoutSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1)))
@@ -136,27 +125,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         for video in videos {
             urls.append(NSURL(string: video.videoURL)!)
         }
-        YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: self, dataSource: self)
-        YTFPlayer.showYTFView(viewController: self)
+        
+        if YTFPlayer.getPlayerViewController() != nil {
+            YTFPlayer.changeURLs(urls: urls)
+        } else {
+            YTFPlayer.initYTF(urls: urls, tableCellNibName: "VideoCell", delegate: PlayerDetailViewController().self, dataSource: PlayerDetailViewController().self)
+            YTFPlayer.showYTFView(viewController: self)
+        }
     }
 }
-
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath as IndexPath) as! VideoCell
-        let model = videos[indexPath.row]
-        cell.videoCellModel = .init(imageName: model.thumbnail, artist: model.artist, title: model.name)
-        return cell
-    }
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        YTFPlayer.playIndex(index: indexPath.row)
-    }
-}
-

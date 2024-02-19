@@ -49,6 +49,10 @@ public struct YTFPlayer {
         }
     }
     
+    public static func getPlayerViewController() -> UIViewController? {
+        return dragViewController
+    }
+    
     public static func changeURL(url: NSURL) {
         dragViewController?.urls = [url]
     }

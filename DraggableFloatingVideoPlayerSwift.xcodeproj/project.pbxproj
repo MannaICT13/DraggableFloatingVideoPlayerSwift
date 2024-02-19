@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F5B2BE9F2B833F63008E6FC7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BE9E2B833F63008E6FC7 /* DetailViewController.swift */; };
+		F5B2BEA12B834DFE008E6FC7 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BEA02B834DFE008E6FC7 /* PlayerDetailViewController.swift */; };
 		F5D527D62B831785008A0335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527D52B831785008A0335 /* AppDelegate.swift */; };
 		F5D527D82B831785008A0335 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527D72B831785008A0335 /* SceneDelegate.swift */; };
 		F5D527DA2B831785008A0335 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D527D92B831785008A0335 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		F5B2BE9E2B833F63008E6FC7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F5B2BEA02B834DFE008E6FC7 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		F5D527D22B831785008A0335 /* DraggableFloatingVideoPlayerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraggableFloatingVideoPlayerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D527D52B831785008A0335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5D527D72B831785008A0335 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				F5D527D92B831785008A0335 /* ViewController.swift */,
 				F5B2BE9E2B833F63008E6FC7 /* DetailViewController.swift */,
+				F5B2BEA02B834DFE008E6FC7 /* PlayerDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				F5D5280B2B8327EF008A0335 /* MovieCollectionViewCell.swift in Sources */,
 				F5D528052B831DD5008A0335 /* Video.swift in Sources */,
 				F5D527F32B831AA6008A0335 /* YTFAnimation.swift in Sources */,
+				F5B2BEA12B834DFE008E6FC7 /* PlayerDetailViewController.swift in Sources */,
 				F5D527EF2B831A7D008A0335 /* CustomProgressSlider.swift in Sources */,
 				F5D527F52B831AD4008A0335 /* YTFPlayerControls.swift in Sources */,
 				F5D527DA2B831785008A0335 /* ViewController.swift in Sources */,

@@ -54,9 +54,31 @@
                     <view key="view" contentMode="scaleToFill" id="Nbo-7Q-GLI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GaN-qi-efG">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dOf-Lk-iG0">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4PI-6b-Ec6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GaN-qi-efG" firstAttribute="leading" secondItem="4PI-6b-Ec6" secondAttribute="leading" id="9yB-gY-H5O"/>
+                            <constraint firstItem="4PI-6b-Ec6" firstAttribute="bottom" secondItem="GaN-qi-efG" secondAttribute="bottom" id="ReE-BR-3q8"/>
+                            <constraint firstItem="4PI-6b-Ec6" firstAttribute="trailing" secondItem="GaN-qi-efG" secondAttribute="trailing" id="Xa5-LA-Klb"/>
+                            <constraint firstItem="GaN-qi-efG" firstAttribute="top" secondItem="4PI-6b-Ec6" secondAttribute="top" id="bNA-KP-Q9h"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="GaN-qi-efG" id="fbv-UF-g5K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdY-gL-GRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
