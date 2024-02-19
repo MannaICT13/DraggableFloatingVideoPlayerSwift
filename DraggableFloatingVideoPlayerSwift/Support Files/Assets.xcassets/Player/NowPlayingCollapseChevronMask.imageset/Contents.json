@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "NowPlayingCollapseChevronMask.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "NowPlayingCollapseChevronMask@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "NowPlayingCollapseChevronMask@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
