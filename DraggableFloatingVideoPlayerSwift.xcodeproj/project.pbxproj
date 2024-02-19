@@ -56,15 +56,47 @@
 		F5D527D42B831785008A0335 /* DraggableFloatingVideoPlayerSwift */ = {
 			isa = PBXGroup;
 			children = (
-				F5D527D52B831785008A0335 /* AppDelegate.swift */,
-				F5D527D72B831785008A0335 /* SceneDelegate.swift */,
-				F5D527D92B831785008A0335 /* ViewController.swift */,
-				F5D527DB2B831785008A0335 /* Main.storyboard */,
-				F5D527DE2B831786008A0335 /* Assets.xcassets */,
-				F5D527E02B831786008A0335 /* LaunchScreen.storyboard */,
-				F5D527E32B831786008A0335 /* Info.plist */,
+				F5D527E92B831827008A0335 /* App */,
+				F5D527EC2B831878008A0335 /* Controller */,
+				F5D527EA2B831831008A0335 /* Storyboard */,
+				F5D527EB2B83183E008A0335 /* Support Files */,
 			);
 			path = DraggableFloatingVideoPlayerSwift;
+			sourceTree = "<group>";
+		};
+		F5D527E92B831827008A0335 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F5D527D52B831785008A0335 /* AppDelegate.swift */,
+				F5D527D72B831785008A0335 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F5D527EA2B831831008A0335 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F5D527DB2B831785008A0335 /* Main.storyboard */,
+				F5D527E02B831786008A0335 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F5D527EB2B83183E008A0335 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5D527DE2B831786008A0335 /* Assets.xcassets */,
+				F5D527E32B831786008A0335 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		F5D527EC2B831878008A0335 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F5D527D92B831785008A0335 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,12 +325,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DraggableFloatingVideoPlayerSwift/Info.plist;
+				INFOPLIST_FILE = "DraggableFloatingVideoPlayerSwift/Support Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,12 +353,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DraggableFloatingVideoPlayerSwift/Info.plist;
+				INFOPLIST_FILE = "DraggableFloatingVideoPlayerSwift/Support Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
