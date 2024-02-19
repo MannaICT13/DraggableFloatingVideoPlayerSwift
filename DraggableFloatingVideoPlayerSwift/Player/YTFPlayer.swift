@@ -36,13 +36,13 @@ public struct YTFPlayer {
             dragViewController!.view.transform = CGAffineTransformMakeScale(0.2, 0.2)
             dragViewController!.onView = viewController.view
             
-            UIApplication.shared.keyWindow?.addSubview(dragViewController!.view)
+            UIApplication.shared.keyWindowInConnectedScenes?.addSubview(dragViewController!.view)
             
             UIView.animate(withDuration: 0.5, animations: {
                 dragViewController!.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
                 dragViewController!.view.alpha = 1
                 
-                dragViewController!.view.frame = CGRectMake(0, 0, UIApplication.shared.keyWindow!.bounds.width, UIApplication.shared.keyWindow!.bounds.height)
+                dragViewController!.view.frame = CGRectMake(0, 0, UIApplication.shared.keyWindowInConnectedScenes!.bounds.width, UIApplication.shared.keyWindowInConnectedScenes!.bounds.height)
                 
                 dragViewController!.isOpen = true
             })
