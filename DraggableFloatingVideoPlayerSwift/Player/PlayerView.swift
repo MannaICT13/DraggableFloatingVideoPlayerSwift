@@ -213,14 +213,14 @@ private extension CMTime {
         playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: [], context: &loadedContext)
         playerItem.addObserver(self, forKeyPath: "duration", options: [], context: &durationContext)
         playerItem.addObserver(self, forKeyPath: "status", options: [], context: &statusItemContext)
-        NotificationCenter.default.addObserver(self, selector: .playerItemDidPlayToEndTime, name: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem)
+        NotificationCenter.default.addObserver(self, selector: .playerItemDidPlayToEndTime, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     func removeObserversVideoItem(playerItem: PVPlayerItem) {
         
         playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges", context: &loadedContext)
         playerItem.removeObserver(self, forKeyPath: "duration", context: &durationContext)
         playerItem.removeObserver(self, forKeyPath: "status", context: &statusItemContext)
-        NotificationCenter.default.removeObserver(self, name: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
     func removeCurrentTimeObserver() {
